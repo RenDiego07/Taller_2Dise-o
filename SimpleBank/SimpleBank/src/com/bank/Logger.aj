@@ -5,10 +5,6 @@ import java.io.IOException;
 import java.util.Calendar;
 
 public aspect Logger {
-    pointcut success() : call(* create*(..) );
-    after() : success() {
-    	System.out.println("**** User created ****");
-    }
     
     pointcut transactionMade() : call(* Bank.moneyMakeTransaction(..));
     after() : transactionMade() {
@@ -16,6 +12,18 @@ public aspect Logger {
     	try(BufferedWriter bw = new BufferedWriter(new FileWriter("Log.txt", true))){
     		
     		bw.write("Transacción realizada " + cal.getTime());
+    		bw.newLine();
+    	}catch(IOException io) {
+    		io.printStackTrace();
+    	}
+    }
+    
+    pointcut dineroWithdrawal() : call(* Bank.moneyWithdrawal(..));
+    after() : dineroWithdrawal() {
+    	Calendar cal = Calendar.getInstance();
+    	try(BufferedWriter bw = new BufferedWriter(new FileWriter("Log.txt", true))){
+    		
+    		bw.write("Retiro realizado " + cal.getTime());
     		bw.newLine();
     	}catch(IOException io) {
     		io.printStackTrace();
