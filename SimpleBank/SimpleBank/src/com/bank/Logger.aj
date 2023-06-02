@@ -5,6 +5,11 @@ import java.io.IOException;
 import java.util.Calendar;
 
 public aspect Logger {
+    pointcut success() : call(* create*(..) );
+    after() : success() {
+    	System.out.println("** User created **");
+    }
+	
     
     pointcut transactionMade() : call(* Bank.moneyMakeTransaction(..));
     after() : transactionMade() {
