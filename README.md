@@ -8,3 +8,5 @@ Funcionalidad del aspecto de ejemplo “Usuario creado”:
 Aspecto Logger:
 
 ![Aspecto_Logger](https://github.com/RenDiego07/Taller_2Dise-o/assets/119761861/1ded37ff-f4cf-475c-9297-9204f0c4eb4b)
+
+![creación aspecto](https://github.com/RenDiego07/Taller_2Dise-o/assets/116833813/24f3cff4-2c5d-4e22-aa96-6a29ab553b33)
